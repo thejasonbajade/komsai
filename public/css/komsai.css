@@ -1,0 +1,324 @@
+body {
+	
+}
+
+
+#index {
+	margin-top : 100px;
+}
+
+.navbar {
+    background: #000000; 
+}
+
+.navbar .nav > li > a,
+.navbar .navbar-brand {
+    color: #FFFFFF;
+    height: 50px;
+}
+
+.navbar .nav > .active > a {
+    border-bottom: 5px solid #008080;
+}
+
+.navbar .nav > li > a:link,
+.navbar .nav > li > a:visited  {
+    color: #FFFFFF; 
+}
+
+.navbar .nav > li > a:hover,
+.navbar .nav > li > a:active,
+.navbar .nav > .active > a:hover, 
+.navbar .navbar-brand:hover {
+    color: #008080;
+    border-bottom: 5px solid #008080;
+}
+
+#brand {
+    color: #008080; 
+}
+
+
+a,
+a:link,
+a:visited,
+.btn-default {
+    color: #00BFA5;
+    text-decoration: none;
+}
+
+a:hover,
+a:active,
+.btn-default:hover,
+.btn-default:focus {
+    color: #00CCBF;
+		text-decoration: underline;
+}
+
+.btn-primary,
+.btn-primary:visited,
+.btn-default > .badge,
+.nav-pills > li.active > a {
+    background-color: #008080;
+}
+
+.panel > .panel-heading,
+.panel > .panel-footer,
+.btn-default:hover,
+.btn-default:active,
+.nav-pills > li > a:hover {
+    background-color: #E5F4F4;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.nav-pills > li.active > a:hover {
+   background-color: #006B6B;
+}
+
+.form-control:focus {
+    border-color: #008080;
+}
+
+#leftPanel-display {
+	position: fixed;
+	z-index: 2;
+}
+
+h2 {
+	text-align: center;
+}
+
+h1 {
+	color: black;
+}
+
+h5, h4 {
+	margin: 0%;
+}
+#username {
+	text-align: center;
+}
+
+#leftPanel {
+	position: fixed;
+	display: block;
+	height: 100vh;
+	background-color: #004D40;
+	color: #FFFFFF;
+	min-width: 300px;
+}
+
+#profileDiv {
+	background-color:#004D40;
+	border-color:#004D40;
+}
+
+
+#profileDiv img{
+	margin-top: 40px;
+}
+
+.list-group-item{
+	padding-left: 40px; 
+	background-color: #00897B;
+	border-color: #004D44;
+	border-radius: 0px;
+}
+
+.remove-padding {
+	padding: 0%;
+}
+
+.panel.panel-default.vertical-nav {
+	border-radius: 0%;
+	margin-top: 0%;
+	border-color: #004D44;
+}
+
+.panel.panel-default.vertical-nav.active {
+	border-right-color: white;
+}
+
+#infoTable {
+	margin-bottom: 5%;
+	margin-left: 15%;
+}
+
+#infoTable td{
+	width:150px;
+}
+
+.panel > .panel-heading {
+	background-color: #00695C;
+	border-radius: 0px;
+}
+
+
+.panel > .panel-heading.active{
+	background-color: #FFFFFF;
+	-webkit-box-shadow: 0 0px 0px rgba(0,0,0,0); 
+	box-shadow: 0 0px 0px rgba(0,0,0,0); 
+	
+}
+
+div a.list-group-item:first-child,
+div a.list-group-item:last-child {
+	border-radius: 0%;
+}
+
+.caret {
+	margin-top:5px;
+}
+
+.badge,
+.glyphicon{
+	margin-right: 10px;
+}
+
+#rightPanel div > div.panel {
+	margin: 5px;
+}
+#rightPanel div > .panel > .panel-body {
+	padding: 10px;
+}
+.panel .panel-collapse a{
+	color: #FFFFFF;
+}
+.panel .panel-collapse a:hover{
+	background-color: white;
+	color: #00695C;
+	font-size: 14px;
+}
+
+.right-panel .yearlevel,
+.right-panel .semester{
+	text-align: center;
+}
+
+.right-panel table td:first-child{
+	width: 100px;
+}
+.right-panel table td:nth-child(1){
+	width: 10px;
+}
+.right-panel table td:nth-child(2){
+	width: 100px;
+	text-align: left;
+}
+.right-panel table td:nth-child(3){
+	width: 700px;
+	text-align: left;
+}
+.right-panel table td:last-child{
+	width: 100px;
+	text-align: center;
+	color: green;
+}
+
+.right-panel table th:nth-child(1){
+	width: 200px;
+	text-align: left;
+}
+.right-panel table th:nth-child(2){
+	width: 500px;
+	text-align: left;
+}
+.right-panel table th:nth-child(3){
+	width: 200px;
+	text-align: left;
+}
+.right-panel table th:last-child{
+	text-align: center;
+}
+
+#leftPanel a:hover,
+#leftPanel a:active {
+  color: #00FFFF;
+	text-decoration: none;
+}
+
+#leftPanel .active a:hover {
+  color: #00897B;
+}
+#navImageA {
+	padding: 9px;
+}
+
+#navImage {
+	width:35px; 
+	height:35px;
+	display: inline-block;
+}
+
+#centerButton {
+	width:100%
+}
+
+.toleft{
+	margin-left: -15px;
+}
+.tleft{
+	margin-left: -5px;
+}
+.toright{
+	margin-left: 30px;
+}
+
+.zerbot{
+	margin-bottom: 0px;
+}
+.martop{
+	margin-top: 10px;
+}
+
+hr{
+	margin:5px 0px;
+	
+}
+
+
+#updateInline{
+	display: inline-block;
+}
+.image{
+	height: 200px;
+	width: 200px;
+	overflow: hidden;
+	margin: 10px auto;
+}
+.btn-file{
+		position: relative;
+		margin-left: 45%;
+		margin-bottom: 10px;
+    overflow: hidden;
+}
+.btn-file input[type=file]{
+    position: absolute;
+    top: 0;
+    right: 0;	
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+.middle{
+	margin-left: 11%;
+}
+.extend{
+	width: 300px;
+}
+.buttonMiddle{
+	margin-top: 10px;
+	margin-left: 38%;
+}
+.errorMessage{
+	color: red;
+	font-style: italic;
+}

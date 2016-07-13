@@ -1,0 +1,93 @@
+
+h2#header{
+	font-size: 30px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	padding: 20px;
+}
+
+p#year{
+	margin-bottom: 10px;
+}
+
+#team img
+{
+	cursor: pointer;
+	display: inline-block;
+	margin-top: 60px;
+	margin-bottom: 10px;
+	position: relative;
+	-webkit-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+	width: 300px;
+	height: 250px;
+}
+#team img:hover
+{
+	border-radius: 50%;
+	-webkit-transform: scale(0.9);
+	-ms-transform: scale(0.9);
+	transform: scale(0.9);
+	opacity: 0.7;
+}
+
+.modal-content-faculty{
+      background-color: white;
+    }
+
+.faculty-modal{
+	height: 85%;
+}
+h3, h3.modal-title{
+	color: #00A18B;
+}
+
+.th-faculty{
+	text-align: center;
+}
+
+div.modal-footer{
+	position: relative;
+    padding: 15px;
+    margin-top: 20px;
+    height: 50%;
+    margin-bottom: 0px;
+}
+
+div.modal-body{
+	position: relative;
+    padding: 15px;
+    top: 25%;
+}
+
+.faculty-p{
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+button.btn.btn-info.btn-lg{
+	padding: 10px 16px;
+	text-align: center;
+	width: 98%;
+	font-size: 12px;
+}
+.button-faculty{
+	background-color: #006B6B;
+	color: white;
+}
+.button-faculty:hover{
+	background-color: #008080;
+	color: #00BFA5;
+}
+
+#faculty-footer{
+	border-top: 1px solid #404040;
+	background: #202020;
+	color: #FFF;
+	padding: 40px 0 40px 0;
+	position: relative;
+	text-align: center;
+}
+
+
+

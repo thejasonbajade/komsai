@@ -1,0 +1,91 @@
+#komsai{
+	width:40px; /* you can use % */
+  height: auto;
+	margin-top: -7px;
+}
+
+/*body{
+	padding-top: 50px;
+}*/
+
+.header{
+	margin-left: 40px;
+	text-align: center;
+}
+
+.fontSize{
+	font-size: 25px;
+}
+
+.jumbotron{
+	color: #FFFFFF;
+	background-color:#008080;
+}
+
+.images{
+	margin-left: 50px;
+}
+
+#chrevic{
+	align-content: center;
+	width: 364px;
+	height: 364px;
+}
+
+.filldiv{
+  overflow: hidden;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 4px;
+}
+
+.fillpic{
+  width: 100%;
+  min-height: 101%;
+  object-fit:cover;
+}
+
+.main{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  /* fill parent */
+  /* let's see it! */
+  color: white;
+}
+
+.wrapper{
+  /* whatever width you want */
+  display: inline-block;
+  position: relative;
+}
+
+.wrapper:after{
+  padding-top: 100%;
+  /* 16:9 ratio */
+  display: block;
+  content: '';
+}
+
+/*a{
+	color: white;
+	font-size: 20px;
+}
+a:hover{
+	color: black;
+}*/
+
+
+.foot{
+	margin-bottom: 0px;
+}
+
+.textfoot{
+	margin-top: 30px;
+}
+
+#iskomsai{
+	color: black;
+}

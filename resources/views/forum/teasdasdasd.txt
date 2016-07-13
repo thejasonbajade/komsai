@@ -1,0 +1,151 @@
+
+@extends('layouts.app')
+@section('content')
+
+    <script>
+
+
+    function upvote(value) {
+	var id = value.id.split(' ')[1];
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+		if(xhttp.readyState == 4 && xhttp.status == 200) {
+			//console.log(value.id);
+            var data=JSON.parse(xhttp.response);
+            document.getElementById(''+id).innerHTML = data['points'];
+            if(data['points']==1){
+                document.getElementById('up '+id).childNodes[0].src = "images/up-toggle.png";
+            }else{
+                document.getElementById('up '+id).childNodes[0].src = "images/up.png";
+                document.getElementById('down '+id).childNodes[0].src = "images/down.png";
+            }
+            console.log(data['points']);
+		}
+	}
+
+	xhttp.open("GET", "forum/"+id+"/postupvote", true);
+	xhttp.send();
+    }
+
+    function downvote(value) {
+
+	var id = value.id.split(' ')[1];
+	var xhttp2 = new XMLHttpRequest();
+	xhttp2.onreadystatechange = function() {
+		if(xhttp2.readyState == 4 && xhttp2.status == 200) {
+
+            var data=JSON.parse(xhttp2.response);
+            document.getElementById(''+id).innerHTML = data['points'];
+            if(data['points']==-1){
+                document.getElementById('down '+id).childNodes[0].src = "images/down-toggle.png";
+            }else{
+                document.getElementById('up '+id).childNodes[0].src = "images/up.png";
+                document.getElementById('down '+id).childNodes[0].src = "images/down.png";
+            }
+
+		}
+	}
+    console.log(id);
+	xhttp2.open("GET", "forum/"+id+"/postdownvote", true);
+	xhttp2.send();
+    }
+
+
+</script>
+
+    <div class="col-md-12" style="margin-top: 80px;">
+        <h1>ISKOMSAI FORUM</h1>
+    </div>
+
+	<div  class="col-md-9">
+    <div class="col-md-12" style="display: flex;margin-top:80px">
+			<h4>{{$header}}</h4>
+			</div>
+
+
+	@if(isset($posts))
+    <div>
+            <div class="col-md-6">
+            <a href="?srch-term={{$keyword}}&orderby=created_at&category={{$category}}"><button class="btn btn-primary col-md-3">FRESH</button></a>
+            <a href="?srch-term={{$keyword}}&orderby=points&category={{$category}}"><button class="btn btn-warning col-md-3">HOT</button></a>
+            <a href="?srch-term={{$keyword}}&orderby=reply_count&category={{$category}}"><button class="btn btn-danger col-md-3">POPULAR</button></a>
+    </div>
+            <div class="col-md-6">
+                <h4 class="pull-right">
+				<div class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer; cursor: hand;">{{$category}}
+					<span class="caret"></span></a>
+					<ul class="dropdown-menu">				<!--change created at to timestamp -->
+                        <li><a href="?srch-term={{$keyword}}&orderby=points&category=All">All</a></li>
+                        @foreach($categories as $c)
+						<li><a href="?srch-term={{$keyword}}&orderby=points&category={{$c->category_name}}">{{$c->category_name}}</a></li>
+                        @endforeach
+					</ul>
+				</div>
+                </h4>
+				<h4 class="pull-right">
+					<p>Category:&nbsp;</p>
+				</h4>
+			</div>
+        <div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="col-md-1">Points </th>
+                        <th class="col-md-8">Topic </th>
+                        <th class="col-md-1" style="text-align: center">Replies </th>
+                        <th class="col-md-2" style="text-align: center">Date Submitted </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+				@foreach ($posts as $post)
+
+                    <tr>
+                        <td>
+                            <div style="display: block;">
+                                <div class="btn-group-vertical ">
+                                <button onclick="upvote(this)" id="up {{$post->post_id}}" style="background-color:Transparent;border:none;cursor:pointer;outline:none"><img <?php if($post->vote==1){ echo "src=".URL::asset("images/up-toggle.png");}else{ echo "src=".URL::asset("images/up.png");} ?>  alt="up" width="30" height="30" /></button>
+                                <p style="text-align:center;margin-bottom: 0px;" id="{{$post->post_id}}"> {{$post->points}} </p>
+                                <button onclick="downvote(this)" id="down {{$post->post_id}}" style="background-color:Transparent;border:none;cursor:pointer;outline:none"><img <?php if($post->vote==-1){ echo "src=".URL::asset("images/down-toggle.png");}else{ echo "src=".URL::asset("images/down.png");} ?>  alt="up" width="30" height="30" /></button></div>
+                            </div>
+                        </td>
+                        <td>
+                            <h3 style="display: flex"><a href="forum/{{$post->post_id}}">{{$post->post_title}}</a>
+                                <span style="font-size: medium; background-color: {{$post->category_color}}; border-radius: 3px; color: rgb(255, 255, 255) !important; margin-left: 10px; padding: 5px">{{$post->category_name}}</span>
+                            </h3>
+
+                            <p>
+								{{$post->post_content}}
+                            </p>
+                        </td>
+                        <td style="text-align: center"> {{$post->reply_count}} </td> <!-- change to timestamp -->
+                        <td style="text-align: center"> {{ date("F j", strtotime($post->created_at)) }} </td>
+                    </tr>
+				@endforeach
+				@endif
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+<div class="col-sm-offset-9 col-sm-3" style="margin-top:80px;position:fixed;float:right">
+    <div>
+        <form  role="search" action="{{ url('/forum') }}" method="post">
+				<div class="input-group">
+                    {!! csrf_field() !!}
+					<input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term"/>
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+						</span>
+				</div>
+		</form>
+	</div>
+    <br/>
+    <a href="{{ url('/forum')}}"><button class="btn btn-primary btn-block">Home</button></a>
+    <br/>
+    <a href="{{ url('/forum/new_post')}}"><button class="btn btn-primary btn-block">New Post</button></a>
+
+</div>
+
+@endsection

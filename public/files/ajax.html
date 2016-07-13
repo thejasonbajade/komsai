@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		window.onload = pageload;
+		var t = 0;
+		var timer;
+		function pageload() {
+			document.getElementById("btn").onclick = generateText;
+			timer = setInterval(clock, 1000);
+		}
+
+		function clock() {
+			var unit = "seconds";
+			if (t==0) { unit = "second";}
+			document.getElementById("clock").innerHTML = ++t + " " + unit;
+		}
+		function generateText() {
+			var xhttp = new XMLHttpRequest();
+
+			xhttp.onreadystatechange = function() {
+				if(xhttp.readyState == 4 && xhttp.status == 200) {
+					createTable(xhttp);
+				}
+			}
+
+			xhttp.open("GET", "library.xml", true);
+			xhttp.send();
+		}
+
+		function createTable(obj) {
+			var xml = obj.responseXML;
+			var books = xml.getElementsByTagName("book");
+			var table = "<table><tr><th>Title</th><th>Author</th><th>Year</th><th>Reserved</th></tr>"
+			for (let i = 0; i < books.length; i++) {
+				var res = "No";
+				if (books[i].getElementsByTagName("reserved")[0]!=undefined) {
+					res = "Yes";
+				}
+				table += "<tr><td>" + books[i].getElementsByTagName("title")[0].childNodes[0].nodeValue + "</td><td>" + books[i].getElementsByTagName("author")[0].childNodes[0].nodeValue + "</td><td>" + books[i].getElementsByTagName("year")[0].childNodes[0].nodeValue + "</td><td>" + res + "</td></tr>";
+			}
+
+			table += "</table>";
+			document.getElementById("content").innerHTML = table;
+
+		}
+	</script>
+</head>
+<body>
+<h2 id="clock">0 second</h2>
+<button type="button" id="btn">Click to get</button>
+<p id="content"></p>
+</body>
+</html>
